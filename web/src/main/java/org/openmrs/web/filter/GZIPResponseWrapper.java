@@ -103,9 +103,16 @@ public class GZIPResponseWrapper extends HttpServletResponseWrapper {
 		return (writer);
 	}
 	
-	@Override
-	public void setContentLength(int length) {
-	}
++/**
+ +* 
+ +*	@Override
+ +*	public void setContentLength(int length) {
+ +*	}
+ +*It is an unintentional omission, and should be fixed to prevent an 
+ +*unexpected behavior in production. It is not yet, or never will be, 
+ +*supported. In this case an [UnsupportedOperationException|NotSupportedException|IllegalOperationError] 
+ +*should be thrown. The method is an intentionally-blank override. 
+ +*/
 	
 	/**
 	 * @see javax.servlet.http.HttpServletResponse#sendError(int, java.lang.String)
